@@ -231,6 +231,11 @@ body{background:radial-gradient(ellipse at 50% 0%,#20244b 0%,#0b1020 60%);min-he
 .bc024-art.bc024-art--normal.bc024-art--unit .bc024-art-atk{left:14.0%}
 .bc024-art.bc024-art--normal.bc024-art--unit .bc024-art-hp{left:85.9%}
 </style>
+<style id="bc0251-battle-name">
+/* Only miniature battle cards: do not change the approved α0.24.8 card layout. */
+#game .bc25-battle-card .bc024-art-name{white-space:nowrap;overflow-wrap:normal;font-size:clamp(6px,2.45cqw,17px);letter-spacing:-.025em}
+#game .bc25-battle-card .bc024-art-name{left:14%;right:14%;}
+</style>
 <style id="bc025-battle-cards">
 /* Only battle cards: reuse the exact approved α0.24.8 art overlay and coordinates. */
 #game .row{align-items:flex-start;gap:7px;flex-wrap:wrap}
@@ -240,7 +245,7 @@ body{background:radial-gradient(ellipse at 50% 0%,#20244b 0%,#0b1020 60%);min-he
 #game .bc25-placeholder{box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;gap:4px;aspect-ratio:2/3;width:100%;padding:7px 5px;background:linear-gradient(160deg,#253c63,#12182e);border:1px solid #7b8fb5;border-radius:5px;overflow:hidden;color:white}
 #game .bc25-placeholder b{font-size:11px;color:#ffe0a2}#game .bc25-placeholder strong{font-size:clamp(9px,2.5vw,13px);line-height:1.15;overflow-wrap:anywhere}#game .bc25-placeholder small{font-size:9px;line-height:1.15;max-height:35%;overflow:hidden}#game .bc25-placeholder>span{font-size:11px;font-weight:bold}
 @media(max-width:430px){#game .bc25-battle-card{width:calc((100% - 21px)/4);padding:2px;gap:2px}#game .row{gap:7px}}
-</style></head><body><div id="choiceOverlay" class="choice-overlay hidden" role="dialog" aria-modal="true"><div class="choice-box"><h3 id="choiceTitle">対象を選択</h3><p class="mini">カードをタップ・クリックして選択し、「決定」を押してください。</p><div class="choice-grid" id="choiceItems"></div><div class="choice-footer"><button id="choiceCancel">キャンセル</button><button id="choiceOk" class="primary" disabled>決定</button></div></div></div><div id="battleFx" aria-hidden="true"></div><div class="wrap"><div class="top"><div class="title">⚡ BREAK CODE <span class="mini">ALPHA 0.25.0</span></div><button onclick="newGame()">対戦メニュー</button></div><div class="panel" id="setup"><h3>対戦モード</h3><p class="mini">まずは友達と同じ端末で交互に操作する「ローカル対戦」か、簡易CPUと試せるモード。オンライン対戦βを追加しました。まずは基本ユニット20枚デッキで、召喚・攻撃・ターンを同期できます。</p><div class="actions"><button class="primary" onclick="openOnlineLobby()">🌐 オンラインロビー</button><button class="primary" onclick="openEditor()">🃏 デッキ編成</button><button class="primary" onclick="openCollection()">🎁 パック開封・カード図鑑</button><button type="button" onclick="bcBattleRecords()">🏆 戦績・対戦履歴</button><button onclick="grantAllTestCards()">🧪 テスト用：全カード配布</button><button type="button" onclick="grantTestCoins()">🪙 テスト用：+1000コイン</button><button class="primary" onclick="start('local')">友達とローカル対戦</button><button onclick="start('cpu')">CPUとテスト</button></div><div class="mini">各20枚デッキ・同名2枚まで・レジェンドはデッキ全体で最大1枚。完成した自作デッキを選択可能。未選択時は自動生成。最初はノーマル20枚と300コイン。パックでカードを集めよう！</div></div><div id="onlineLobby" class="panel hidden"></div><div id="onlineBattle" class="panel hidden"></div><div id="wallet" class="panel"></div><div id="battleDecks" class="panel"></div><div id="collection" class="panel hidden"></div><div id="editor" class="panel hidden"></div><div id="game" class="hidden"><div id="turn" class="panel"></div><div id="enemy" class="panel"></div><div id="mine" class="panel"></div><div id="hand" class="panel"></div><div id="controls" class="panel"></div><div class="panel"><h3>バトルログ</h3><div id="log" class="log"></div></div></div></div><script>
+</style></head><body><div id="choiceOverlay" class="choice-overlay hidden" role="dialog" aria-modal="true"><div class="choice-box"><h3 id="choiceTitle">対象を選択</h3><p class="mini">カードをタップ・クリックして選択し、「決定」を押してください。</p><div class="choice-grid" id="choiceItems"></div><div class="choice-footer"><button id="choiceCancel">キャンセル</button><button id="choiceOk" class="primary" disabled>決定</button></div></div></div><div id="battleFx" aria-hidden="true"></div><div class="wrap"><div class="top"><div class="title">⚡ BREAK CODE <span class="mini">ALPHA 0.25.1</span></div><button onclick="newGame()">対戦メニュー</button></div><div class="panel" id="setup"><h3>対戦モード</h3><p class="mini">まずは友達と同じ端末で交互に操作する「ローカル対戦」か、簡易CPUと試せるモード。オンライン対戦βを追加しました。まずは基本ユニット20枚デッキで、召喚・攻撃・ターンを同期できます。</p><div class="actions"><button class="primary" onclick="openOnlineLobby()">🌐 オンラインロビー</button><button class="primary" onclick="openEditor()">🃏 デッキ編成</button><button class="primary" onclick="openCollection()">🎁 パック開封・カード図鑑</button><button type="button" onclick="bcBattleRecords()">🏆 戦績・対戦履歴</button><button onclick="grantAllTestCards()">🧪 テスト用：全カード配布</button><button type="button" onclick="grantTestCoins()">🪙 テスト用：+1000コイン</button><button class="primary" onclick="start('local')">友達とローカル対戦</button><button onclick="start('cpu')">CPUとテスト</button></div><div class="mini">各20枚デッキ・同名2枚まで・レジェンドはデッキ全体で最大1枚。完成した自作デッキを選択可能。未選択時は自動生成。最初はノーマル20枚と300コイン。パックでカードを集めよう！</div></div><div id="onlineLobby" class="panel hidden"></div><div id="onlineBattle" class="panel hidden"></div><div id="wallet" class="panel"></div><div id="battleDecks" class="panel"></div><div id="collection" class="panel hidden"></div><div id="editor" class="panel hidden"></div><div id="game" class="hidden"><div id="turn" class="panel"></div><div id="enemy" class="panel"></div><div id="mine" class="panel"></div><div id="hand" class="panel"></div><div id="controls" class="panel"></div><div class="panel"><h3>バトルログ</h3><div id="log" class="log"></div></div></div></div><script>
 const DATA=[
 [1,"Luminary創設！　とま","N","U",2,2,2,"男,鯖主","",""],
 [2,"Luminary創設！　RIKKUN","N","U",1,2,1,"男,鯖主","",""],
@@ -506,21 +511,22 @@ function battleToast(message){
 }
 function newGame(){if(busy)return;if(G&&!confirm('現在の対戦を終了して新しく始める？'))return;G=null;bcResultShown=false;$('battleFx').replaceChildren();$('setup').classList.remove('hidden');$('game').classList.add('hidden');$('editor').classList.add('hidden');$('collection').classList.add('hidden');$('battleDecks').classList.remove('hidden');$('wallet').classList.remove('hidden');updateWallet();renderDeckSelect()}
 
+const BC251_BATTLE_NAMES={7:'うさ',14:'ルミナリア',29:'ちゆ&もきゅ獣',30:'きゅんタグ'};
 const BC024_ASSETS={7:'assets/card_7.png',14:'assets/card_14.png',29:'assets/card_29.png',30:'assets/card_30.png'};
 function bc024Art(id,opts={}){
  const path=(id===29&&opts.secret)?'assets/card_29_secret.png':BC024_ASSETS[id];if(!path)return '';
  const c=DATA.find(x=>x.id===id);if(!c)return '';
  const clean=x=>String(x??'').replace(/[&<>"']/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[k]));
  const atk=opts.atk??c.atk,hp=opts.hp??c.hp;
- return `<span class="bc024-art ${c.type==='S'?'bc024-art--spell':'bc024-art--unit'} ${c.rarity==='N'?'bc024-art--normal':''}" style="background-image:url('${path}')"><span class="bc024-art-cost">${clean(opts.cost??c.cost)}</span><span class="bc024-art-name">${clean(c.name)}</span><span class="bc024-art-effect">${clean(c.desc)}</span><span class="bc024-art-power">${c.type==='U'?`<span class="bc024-art-atk">${clean(atk)}</span><span class="bc024-art-hp">${clean(hp)}</span>`:'<span class="bc024-art-spell">✦</span>'}</span></span>`;
+ return `<span class="bc024-art ${c.type==='S'?'bc024-art--spell':'bc024-art--unit'} ${c.rarity==='N'?'bc024-art--normal':''}" style="background-image:url('${path}')"><span class="bc024-art-cost">${clean(opts.cost??c.cost)}</span><span class="bc024-art-name">${clean(opts.battleName??c.name)}</span><span class="bc024-art-effect">${clean(c.desc)}</span><span class="bc024-art-power">${c.type==='U'?`<span class="bc024-art-atk">${clean(atk)}</span><span class="bc024-art-hp">${clean(hp)}</span>`:'<span class="bc024-art-spell">✦</span>'}</span></span>`;
 }
 
 function cardHtml(u,action='',i=0){
  const c=card(u.id),hasArt=!!BC024_ASSETS[u.id];
  const actionCall=action==='play'?`playHand(${i})`:action==='attack'?`attack(${i})`:'void(0)';
  const status=action==='attack'?`<span class="bc25-action-status">${u.ready&&u.attacks<1?'攻撃可能':'待機中'} · ${u.attacks}/${u.id===29?2:1}</span>`:'';
- const visual=hasArt?bc024Art(u.id,{cost:u.cost,atk:u.atk,hp:u.hp,secret:!!collection.secretEquipped?.[u.id]}):`<span class="bc25-placeholder"><b>◆ ${esc(u.cost)}</b><strong>${esc(c.name)}</strong><small>${esc(c.desc)}</small><span>${c.type==='U'?`⚔ ${esc(u.atk)}　♥ ${esc(u.hp)}`:'✦ スペル'}</span></span>`;
- return `<button type="button" class="card bc25-battle-card ${c.rarity==='L'?'legend':c.rarity==='R'?'rare':''} ${u.ready&&action==='attack'?'ready':''}" onclick="${actionCall}" aria-label="${esc(c.name)} ${action==='play'?'使用':action==='attack'?'攻撃':'相手ユニット'}">${visual}${status}</button>`;
+ const visual=hasArt?bc024Art(u.id,{cost:u.cost,atk:u.atk,hp:u.hp,battleName:BC251_BATTLE_NAMES[u.id]||c.name,secret:!!collection.secretEquipped?.[u.id]}):`<span class="bc25-placeholder"><b>◆ ${esc(u.cost)}</b><strong>${esc(c.name)}</strong><small>${esc(c.desc)}</small><span>${c.type==='U'?`⚔ ${esc(u.atk)}　♥ ${esc(u.hp)}`:'✦ スペル'}</span></span>`;
+ return `<button type="button" data-bc-card-id="${u.id}" class="card bc25-battle-card ${c.rarity==='L'?'legend':c.rarity==='R'?'rare':''} ${u.ready&&action==='attack'?'ready':''}" onclick="${actionCall}" aria-label="${esc(c.name)} ${action==='play'?'使用':action==='attack'?'攻撃':'相手ユニット'}">${visual}${status}</button>`;
 }
 function render(){if(!G)return;let i=G.active,p=player(i),e=foe(i);$('turn').innerHTML=`<div class="top"><strong class="bc-turn-indicator">${G.over?'対戦終了':`⚡ P${i+1} TURN`}</strong><span class="chip">ターン ${G.turnCount}</span><span class="chip">${G.mode==='cpu'?'CPU対戦':'ローカル2人対戦'}</span></div>${G.over?`<div class="notice">${G.log[0]}</div>`:''}`;$('enemy').innerHTML=`<h3>相手 P${2-i}　♥ ${e.hp}/20　⚡ ${e.energy}/${e.maxEnergy}　🃏 ${e.hand.length}　📚 ${e.deck.length}　<button type="button" class="bc-discard-btn" onclick="bcLocalDiscard(${1-i})">🗑️ ${e.discard.length}枚 ▸</button></h3><div class="bc-hp-track"><span style="width:${Math.max(0,Math.min(100,e.hp*5))}%"></span></div><div class="row">${e.field.map(x=>cardHtml(x)).join('')||'<span class="mini">ユニットなし</span>'}</div>`;$('mine').innerHTML=`<h3>自分 P${i+1}　♥ ${p.hp}/20　⚡ ${p.energy}/${p.maxEnergy}　🃏 ${p.hand.length}　📚 ${p.deck.length}　<button type="button" class="bc-discard-btn" onclick="bcLocalDiscard(${i})">🗑️ ${p.discard.length}枚 ▸</button></h3><div class="bc-hp-track"><span style="width:${Math.max(0,Math.min(100,p.hp*5))}%"></span></div><div class="row">${p.field.map((x,k)=>cardHtml(x,'attack',k)).join('')||'<span class="mini">ユニットなし</span>'}</div>`;$('hand').innerHTML=`<h3>手札 ${p.hand.length}/10 <span class="mini">タップして使用</span></h3><div class="row">${p.hand.map((x,k)=>cardHtml(x,'play',k)).join('')||'<span class="mini">手札なし</span>'}</div>`;let n=p.field.length===4&&(p.hand.some(x=>x.id===23));$('controls').innerHTML=`<div class="actions"><button class="primary" onclick="endTurn()" ${G.over?'disabled':''}>ターン終了</button>${n?`<button class="primary" onclick="specialNeko()">🐈 ねこ特殊召喚（4体を生贄）</button>`:''}${bcSpeedMarkup()}<label class="bc-fx-toggle"><input type="checkbox" ${bcEffectsOn?'checked':''} onchange="bcToggleEffects(this.checked)">演出ON</label><button onclick="alert('${'盤面4体で手札のねこをタップ、または「ねこ特殊召喚」ボタン / 手札カード→使用 / 自分の場→攻撃 / ターン終了で交代。対象カードをタップ・クリックで選択し、決定。貫通・速攻でも敵ユニットを無視できません。'.replaceAll("'",'')}')">遊び方</button></div><div class="mini">${G.mode==='local'?'同じ画面を交互に使用。手札を相手に見せないように交代してください。':'CPUは簡易AIです。'}　※テスト版：オンライン通信は未実装。コイン報酬はCPU対戦のみ。</div>`;$('log').innerHTML=G.log.slice(0,40).map((line,i)=>`<div class="bc-local-logline ${String(line).startsWith('🔎')?'bc-log-event':String(line).startsWith('  ↳')?'bc-log-detail':i===0?'bc-log-event':''}">${esc(line)}</div>`).join('');$('log').style.display=bcLocalLogCollapsed?'none':'';const logTitle=$('log').previousElementSibling;if(logTitle)logTitle.innerHTML=`バトルログ・効果処理 <button type="button" onclick="bcToggleLocalLog()">${bcLocalLogCollapsed?'ログを表示':'ログを折りたたむ'}</button>`}
 try{saveCollection();updateWallet();renderDeckSelect()}catch(e){document.getElementById('battleDecks').textContent='初期化エラー: '+e.message;console.error(e)}</script></body>
@@ -662,7 +668,7 @@ onAuthStateChanged(auth,u=>{user=u;if(u)status='接続準備OK！ 部屋を作�
 </script>
 
 <style>
-#bc-info-fab{position:fixed;right:14px;bottom:calc(15px + env(safe-area-inset-bottom));z-index:850;border:1px solid #a99bff;background:#433a84ed;color:white;border-radius:50px;box-shadow:0 5px 24px #0009;font-size:14px;font-weight:800;padding:12px 16px;min-height:48px}
+
 #bc-info-shade{position:fixed;inset:0;z-index:3000;background:#050a18e9;display:none;align-items:center;justify-content:center;padding:14px}
 #bc-info-shade.open{display:flex}
 #bc-info-dialog{width:min(520px,100%);max-height:88dvh;overflow:auto;background:linear-gradient(145deg,#26375c,#141c34);border:2px solid #aa9aff;border-radius:18px;padding:18px;box-shadow:0 15px 70px #000c;color:#f6f4ff}
@@ -674,9 +680,9 @@ onAuthStateChanged(auth,u=>{user=u;if(u)status='接続準備OK！ 部屋を作�
 #bc-info-dialog .bc-library{display:grid;grid-template-columns:1fr 1fr;gap:7px;max-height:53dvh;overflow:auto}
 #bc-info-dialog .bc-library button{text-align:left;font-size:12px;min-height:55px;padding:8px}
 .bc-inspect-hint{font-size:11px;color:#b5c5ef}
-@media(max-width:420px){#bc-info-dialog .bc-library{grid-template-columns:1fr}#bc-info-fab{padding:10px 13px}}
+@media(max-width:420px){#bc-info-dialog .bc-library{grid-template-columns:1fr}}
 </style>
-<button id="bc-info-fab" type="button" aria-label="カード図鑑を開く">📖 カード図鑑</button>
+
 <div id="bc-info-shade" role="dialog" aria-modal="true" aria-label="カード詳細">
   <div id="bc-info-dialog"></div>
 </div>
@@ -715,12 +721,14 @@ function library(restore=false){
  function render(){const q=inp.value.trim().toLowerCase();const filtered=cards.filter(c=>[c.name,c.desc,...(c.keys||[]),...(c.tags||[])].join(' ').toLowerCase().includes(q));list.innerHTML=filtered.map(c=>`<button type="button" data-info-id="${c.id}">◆${escInfo(c.cost)} ${escInfo(c.name)}<div class="bc-meta">${escInfo(c.type==='U'?`⚔${c.atk} ♥${c.hp}`:'スペル')}　No.${c.id}</div></button>`).join('')||'<p>該当するカードがありません</p>'}
  inp.value=libraryQuery;inp.addEventListener('input',()=>{libraryQuery=inp.value;render()});list.addEventListener('click',e=>{const b=e.target.closest('[data-info-id]');if(b)detail(cards.find(c=>String(c.id)===b.dataset.infoId))});render();if(restore)dialog.scrollTop=libraryScroll;
 }
-document.getElementById('bc-info-fab').onclick=library;
+
 shade.addEventListener('click',e=>{if(e.target===shade)close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&shade.classList.contains('open'))close()});
 function findCard(node){
  const cands=all();
  if(!cands.length)return null;
+ const directId=node.getAttribute('data-bc-card-id');
+ if(directId){const matched=cands.find(c=>String(c.id)===directId);if(matched)return matched;}
  const label=node.querySelector('.nm')?.textContent||node.querySelector('b')?.textContent||node.textContent||'';
  return [...cands].sort((a,b)=>b.name.length-a.name.length).find(c=>label.includes(c.name))||null;
 }
