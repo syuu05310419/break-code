@@ -547,7 +547,7 @@ function battleToast(message){
 function newGame(){if(busy)return;if(G&&!confirm('現在の対戦を終了して新しく始める？'))return;G=null;bcResultShown=false;$('battleFx').replaceChildren();$('setup').classList.remove('hidden');$('game').classList.add('hidden');$('editor').classList.add('hidden');$('collection').classList.add('hidden');$('battleDecks').classList.remove('hidden');$('wallet').classList.remove('hidden');updateWallet();renderDeckSelect()}
 
 const BC251_BATTLE_NAMES={7:'うさ',14:'きゅんタグ',29:'ちゆ&もきゅ獣',30:'ルミナリア'};
-const BC024_ASSETS={1:'assets/card_1.png',2:'assets/card_2.png',3:'assets/card_3.png',4:'assets/card_4.png',5:'assets/card_5.png',7:'assets/card_7.png',14:'assets/card_14.png',29:'assets/card_29.png',30:'assets/card_30.png'};
+const BC024_ASSETS={1:'assets/card_1.png',2:'assets/card_2.png',3:'assets/card_3.png',4:'assets/card_4.png',5:'assets/card_5.png',6:'assets/card_6.png',8:'assets/card_8.png',9:'assets/card_9.png',10:'assets/card_10.png',7:'assets/card_7.png',14:'assets/card_14.png',29:'assets/card_29.png',30:'assets/card_30.png'};
 function bc024Art(id,opts={}){
  const path=(id===29&&opts.secret)?'assets/card_29_secret.png':BC024_ASSETS[id];if(!path)return '';
  const c=DATA.find(x=>x.id===id);if(!c)return '';
